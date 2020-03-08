@@ -1,0 +1,28 @@
+{
+	"name": "engrafi-authentication",
+	"version": "1.0.0",
+	"description": "Engrafi endpoint to authenticate on DMS DB severs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon index.js",
+		"start": "node index.js"
+	},
+	"keywords": [
+		"engrafi",
+		"engrafi-dms"
+	],
+	"author": "Enoch Klufio",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.19.2",
+		"colors": "^1.4.0",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"moment": "^2.24.0",
+		"morgan": "^1.9.1",
+		"mysql2": "^2.1.0",
+		"uuid": "^7.0.2"
+	}
+}
