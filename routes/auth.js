@@ -12,6 +12,6 @@ const router = express.Router();
 |	@access 			Public
 |--------------------------------------------------
 */
-router.route('/').post(authenticateViaMSISDN);
+router.route('/').get(authenticateViaMSISDN);
 
 module.exports = router;

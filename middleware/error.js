@@ -28,21 +28,22 @@ const errorHandler = (err, req, res, next) => {
 		// let errorText = JSON.stringify(error);
 	}
 
+	const errorResponse = {
+		responseCode: error.statusCode || 500,
+		status: 'error',
+		message: error.message || 'Serverside Error. Please contact admin',
+		msisdn: MSISDN,
+		password: null
+	};
+
 	// log to the file
 	logger(
 		'errors.log',
-		`${req.requestID}|${fullUrl}|${MSISDN}|${JSON.stringify(
-			req.query
-		)}|${error.statusCode || 500}|${error.message ||
-			'Serverside Error. Please contact admin'}`
+		`${req.requestID}|${fullUrl}|${JSON.stringify(errorResponse)}`
 	);
 
 	// Return error response
-	res.status(error.statusCode || 500).json({
-		status: 'error',
-		message: error.message || 'Serverside Error. Please contact admin',
-		msisdn: MSISDN
-	});
+	res.status(error.statusCode || 500).json(errorResponse);
 };
 
 module.exports = errorHandler;
